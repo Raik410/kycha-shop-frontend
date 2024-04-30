@@ -9,6 +9,7 @@ const colors = {
   secondary: '#161D25',
   'bg-color': '#F2F2F5',
   blue: '#268697',
+  red: tailwindColors.red[400],
 };
 
 const config: Config = {

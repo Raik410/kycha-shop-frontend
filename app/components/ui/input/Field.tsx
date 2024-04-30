@@ -8,9 +8,21 @@ const Field = forwardRef<HTMLInputElement, IField>(
       <div className={cn('', className)} style={style}>
         <label>
           <span>{placeholder}</span>
-          <input ref={ref} type={type} {...rest} />
+          <input
+            className={cn(
+              'border-solid border-[1px] rounded-md px-2 py-1 w-full outline-none transition-all',
+              {
+                'border-red': !!error,
+                'focus:border-primary': !error,
+              },
+            )}
+            placeholder={placeholder}
+            ref={ref}
+            type={type}
+            {...rest}
+          />
         </label>
-        {error && <div className={styles.error}>{error}</div>}
+        {error && <div className="text-red pt-2">{error}</div>}
       </div>
     );
   },
