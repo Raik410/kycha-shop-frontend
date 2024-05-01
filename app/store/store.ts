@@ -11,6 +11,7 @@ import persistReducer from 'redux-persist/lib/persistReducer';
 import persistStore from 'redux-persist/lib/persistStore';
 import storage from 'redux-persist/lib/storage';
 import { userSlice } from './user/user.slice';
+import { cartSlice } from './cart/cart.slice';
 
 const persistConfig = {
   key: 'kycha-shop',
@@ -19,7 +20,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  // cart: cartSlice.reducer,
+  cart: cartSlice.reducer,
   // carousel: carouselSlice.reducer,
   user: userSlice.reducer,
 });

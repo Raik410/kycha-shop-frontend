@@ -11,7 +11,7 @@ const CheckRole: FC<PropsWithChildren<TypeComponentAuthFields>> = ({
 
   const router = useRouter();
 
-  if (isOnlyUser && user) {
+  if (user && isOnlyUser) {
     return <>{children}</>;
   }
 

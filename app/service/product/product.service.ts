@@ -1,10 +1,10 @@
-import { instance } from '@/api/api.interceptor';
-import { IProduct } from '@/types/product.interface';
-import { TypeProductDataFilters, TypeProductData } from './product.types';
+import { axiosClassic, instance } from '@/api/api.interceptor';
+import { IProduct, TypePaginationProducts } from '@/types/product.interface';
+import { TypeProductData, TypeProductDataFilters } from './product.types';
 
 export const ProductService = {
   async getAll(queryData = {} as TypeProductDataFilters) {
-    return instance<IProduct[]>({
+    return axiosClassic<TypePaginationProducts>({
       url: '/products',
       method: 'GET',
       params: queryData,
@@ -12,14 +12,14 @@ export const ProductService = {
   },
 
   async getSimilar(productId: number | string) {
-    return instance<IProduct[]>({
+    return axiosClassic<IProduct[]>({
       url: `/products/similar/${productId}`,
       method: 'GET',
     });
   },
 
   async getBySlug(slug: string) {
-    return instance<IProduct>({
+    return axiosClassic<IProduct>({
       url: `/products/by-slug/${slug}`,
       method: 'GET',
     });
@@ -33,7 +33,7 @@ export const ProductService = {
   },
 
   async getByCategory(categorySlug: string) {
-    return instance<IProduct[]>({
+    return axiosClassic<IProduct[]>({
       url: `/products/by-category/${categorySlug}`,
       method: 'GET',
     });

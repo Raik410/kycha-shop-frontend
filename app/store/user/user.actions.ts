@@ -1,3 +1,4 @@
+import { errorCatch } from '@/api/api.helper';
 import { removeFromStorage } from '@/service/auth/auth.helper';
 import { AuthService } from '@/service/auth/auth.service';
 import { createAsyncThunk } from '@reduxjs/toolkit';
@@ -38,7 +39,11 @@ export const checkAuth = createAsyncThunk(
       const response = await AuthService.getNewTokens();
       return response.data;
     } catch (error) {
-      thunkApi.dispatch(loggout());
+      if (errorCatch(error) === 'jwt expired') {
+        thunkApi.dispatch(loggout());
+      }
+
+      return thunkApi.rejectWithValue(error);
     }
   },
 );
