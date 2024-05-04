@@ -3,7 +3,7 @@ import { FC, useState } from 'react';
 import { Rating } from 'react-simple-star-rating';
 
 const ProductRating: FC<{ product: IProduct }> = ({ product }) => {
-  const [rating, setRating] = useState(
+  const [rating] = useState(
     Math.round(
       product.reviews.reduce((acc, review) => acc + review.rating, 0) /
         product.reviews.length,

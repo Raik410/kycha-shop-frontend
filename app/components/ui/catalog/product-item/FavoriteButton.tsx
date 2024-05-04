@@ -1,7 +1,6 @@
 import { useProfile } from '@/hooks/useProfile';
 import { UserService } from '@/service/user.service';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { log } from 'console';
 import { FC } from 'react';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
@@ -26,15 +25,12 @@ const FavoriteButton: FC<{ productId: number }> = ({ productId }) => {
   //   return null;
   // }
 
-  const isExists = profile?.favorite?.some((fav) => fav.id === productId);
-
-  console.log(isExists, 'isExists');
-  console.log(profile?.favorites, 'profile?.favorites');
+  const isExists = profile?.favorites?.some((fav) => fav.id === productId);
 
   return (
     <div>
       <button className="text-primary" onClick={() => mutate()}>
-        {isExists ? <AiFillHeart /> : <AiOutlineHeart />}
+        {isExists ? <AiFillHeart size={20} /> : <AiOutlineHeart size={20} />}
       </button>
     </div>
   );

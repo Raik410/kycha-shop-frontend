@@ -10,7 +10,11 @@ const Home: FC<TypePaginationProducts> = ({ products, length }) => {
     <Meta title="Home" description="bla">
       <Layout>
         <Heading>Darova</Heading>
-        <Catalog title="New products" products={products || []} />
+        <Catalog
+          title="New products"
+          data={{ products, length }}
+          isPagination
+        />
       </Layout>
     </Meta>
   );

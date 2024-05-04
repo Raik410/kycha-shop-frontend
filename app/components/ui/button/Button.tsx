@@ -15,7 +15,7 @@ const Button: FC<PropsWithChildren<IButtonProps>> = ({
   return (
     <button
       className={cn(
-        'rounded-xl font-medium shadow-md px-5 py-2',
+        'rounded-xl font-medium shadow-md px-5 py-2 hover:shadow-lg transition-all duration-300',
         {
           'text-secondary bg-primary': variant === 'dark',
           'text-primary bg-white': variant === 'light',

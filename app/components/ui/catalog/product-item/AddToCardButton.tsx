@@ -26,7 +26,11 @@ const AddToCardButton: FC<{ product: IProduct }> = ({ product }) => {
               })
         }
       >
-        {currentElement ? <PiShoppingCartFill /> : <PiShoppingCartLight />}
+        {currentElement ? (
+          <PiShoppingCartFill size={20} />
+        ) : (
+          <PiShoppingCartLight size={20} />
+        )}
       </button>
     </div>
   );

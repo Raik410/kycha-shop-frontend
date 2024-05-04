@@ -12,7 +12,7 @@ export const getStaticProps: GetStaticProps<
   TypePaginationProducts
 > = async () => {
   console.log(Cookies.get('refreshToken'), 'Cookies.get("refreshToken")');
-  const { data } = await ProductService.getAll({
+  const data = await ProductService.getAll({
     page: 1,
     perPage: 4,
   });

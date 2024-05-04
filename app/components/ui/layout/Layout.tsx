@@ -8,7 +8,7 @@ const Layout: FC<PropsWithChildren<unknown>> = ({ children }) => {
       <Header />
       <div className="grid" style={{ gridTemplateColumns: '1fr 4fr' }}>
         <Sidebar />
-        <main className="p-10">{children}</main>
+        <main className="p-10 rounded-md">{children}</main>
       </div>
     </div>
   );
